@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brian Tapia - Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background-color: #0b0e1e;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: #ff4c4c;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #d13333;
+    }
+
+    /* Hero Section */
+    #hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 2;
+    }
+    #hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #FF4C4C;
+      text-shadow: 0 0 10px rgba(255, 76, 76, 0.8);
+    }
+    #hero p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #ddd;
+    }
+    #hero .btn {
+      margin-top: 1.5rem;
+      font-weight: 600;
+      background-color: #FF4C4C;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    #hero .btn:hover {
+      background-color: #d13333;
+      transform: scale(1.1);
+    }
+
+    /* Globe Background */
+    #hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* Section Titles with Red Highlight */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #ff4c4c;
+      margin-top: 10px;
+    }
+
+    /* About Section */
+    #about {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    #about h2 {
+      color: #FF4C4C;
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+    #about h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #ff4c4c;
+      margin-top: 10px;
+    }
+    #about p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 2rem auto 0;
+      color: #ddd;
+    }
+
+    /* Projects Section */
+    #projects {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    #projects h2 {
+      color: #FF4C4C;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+    #projects h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #ff4c4c;
+      margin-top: 10px;
+    }
+
+    .project-entry {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+    .project-entry:nth-child(even) .project-text {
+      order: 2;
+    }
+    .project-entry:nth-child(even) .project-image {
+      order: 1;
+    }
+
+    .project-image img {
+      max-width: 100%;
+      /* no extra background or border */
+    }
+
+    .project-text {
+      flex: 1;
+      min-width: 300px;
+      margin: 2rem;
+    }
+    .project-text h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #ff4c4c;
+    }
+    .project-text p {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+
+    .project-links a {
+      display: inline-block;
+      margin-right: 2rem;
+      position: relative;
+      font-weight: 600;
+    }
+    .project-links a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #ff4c4c;
+      margin-top: 5px;
+      transition: width 0.3s ease;
+    }
+    .project-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Contact Section */
+    #contact {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    #contact h2 {
+      color: #FF4C4C;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+    #contact h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #ff4c4c;
+      margin-top: 10px;
+    }
+    #contact p {
+      font-size: 1.2rem;
+      color: #ccc;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+    #contact form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    #contact input, #contact textarea {
+      background: none;
+      border: none;
+      border-bottom: 2px solid #333;
+      padding: 0.75rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    #contact input:focus, #contact textarea:focus {
+      outline: none;
+      border-bottom: 2px solid #ff4c4c;
+    }
+    #contact button {
+      align-self: flex-start;
+      background: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    #contact button::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #ff4c4c;
+      transition: width 0.3s ease;
+      margin-top: 5px;
+    }
+    #contact button:hover::after {
+      width: 100%;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111430;
+      text-align: center;
+      padding: 2rem;
+    }
+    footer p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ff4c4c;
+      margin-bottom: 1rem;
+    }
+    footer a {
+      color: #ff4c4c;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #d13333;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <div id="hero-bg"></div>
+  <section id="hero">
+    <div class="container">
+      <h1>Hi, I'm <span style="color: #fff;">Brian</span></h1>
+      <p>Aspiring Software Engineer | Full-Stack Developer</p>
+      <a href="#projects" class="btn btn-lg">View My Work</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        I’m currently pursuing a degree in computer science at NJIT. I’m immersed in cutting-edge tools and languages that fuel my passion for building innovative solutions. Beyond the classroom, I love tackling complex coding challenges, experimenting with emerging technologies, and staying active through various sports.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+
+      <div class="project-entry">
+        <div class="project-image">
+          <img src="survivalguide.JPG" alt="Tech Survival Guide" />
+        </div>
+        <div class="project-text">
+          <h3>Tech Survival Guide</h3>
+          <p>Comprehensive guide covering web technologies and the history of the internet.</p>
+          <div class="project-links">
+            <a href="https://briantapiacs.github.io/IS117StudentGuide/index.html" target="_blank">LIVE APP</a>
+            <a href="#">LEARN MORE</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-image">
+          <img src="backpackstore.png" alt="Backpack Store" />
+        </div>
+        <div class="project-text">
+          <h3>Backpack Store</h3>
+          <p>A responsive e-commerce site designed to sell backpacks with a clean and modern design.</p>
+          <div class="project-links">
+            <a href="#">LIVE APP</a>
+            <a href="#">LEARN MORE</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Have a question or want to work together? Leave your details and I'll get back to you as soon as possible.</p>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="4" placeholder="Message" required></textarea>
+        <button type="submit">SUBMIT</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Let's Work Together</p>
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.globe.min.js"></script>
+  <script>
+    VANTA.GLOBE({
+      el: "#hero-bg",
+      color: 0xff4c4c,
+      backgroundColor: 0x0b0e1e,
+      size: 0.7,
+      scale: 1.1
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  .hero-section {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .section-title {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  .project-image img {
+    max-width: 300px;
+    height: auto; /* This ensures the image maintains its aspect ratio */
+  }
+  
